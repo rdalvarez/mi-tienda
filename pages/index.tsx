@@ -61,7 +61,7 @@ const IndexRoute: React.FC<Props> = ({products}) => {
                     />
                     <Text>{product.title}</Text>
                     <Text fontSize="sm" fontWeight="500" color="green.500">
-                    {parseCurrency(product.price)}
+                      {parseCurrency(product.price)}
                     </Text>
                   </Stack>
                 <Button
@@ -75,7 +75,7 @@ const IndexRoute: React.FC<Props> = ({products}) => {
               </Stack>
             ))}
           </Grid>
-          <AnimatePresence>
+          <AnimatePresence  mode="wait">
             { Boolean(cart.length) && (
               <Box
                 initial={{scale:0}}
@@ -89,9 +89,11 @@ const IndexRoute: React.FC<Props> = ({products}) => {
                 <Button
                   isExternal
                   as={Link}
+                  size="lg"
                   colorScheme="whatsapp"
                   href={`https://wa.me/+5491140679999?text=${encodeURIComponent(text)}`}
                   width="fit-content"
+                  leftIcon={<Image src="https://icongr.am/fontawesome/whatsapp.svg?size=32&color=ffffff" />}
                   >
                   Completar pedido ({cart.length} productos)
                 </Button>
@@ -119,12 +121,12 @@ const IndexRoute: React.FC<Props> = ({products}) => {
             width="100%"
             onClick={() => setSelectedImage('') }
           >
-            <Image key="image" src={selectedImage} maxWidth={600} maxHeight={600}>
+            <Image key="image" src={selectedImage} maxWidth={500} >
             </Image>
           </Flex>
         }
       </AnimatePresence>
-
+      
     </div>
   );
 }
